@@ -62,7 +62,7 @@ resource "aws_security_group" "server_security_group" {
 }
 
 module "ec2" {
-  source = "git::URL"
+  source = "git::https://github.com/lucasmd94/Atividade2-Terraform-EC2"
 
   region = var.region
   ami = "ami-00c39f71452c08778"
@@ -73,7 +73,7 @@ module "ec2" {
 }
 
 module "rds" {
-  source = "git::URL"
+  source = "git::https://github.com/lucasmd94/Atividade2-Terraform-RDS"
 
   region = var.region
   security_group_id = aws_security_group.server_security_group.id
@@ -89,7 +89,7 @@ module "rds" {
 }
 
 module "sqs" {
-  source = "git::URL"
+  source = "git::https://github.com/lucasmd94/Atividade2-Terraform-SQS"
 
   region = var.region
   queue_name = var.module_name
